@@ -18,6 +18,7 @@ declare(strict_types=1);
 
 namespace spice\cauldrons;
 
+use pocketmine\block\BlockIds;
 use pocketmine\item\Item;
 use pocketmine\item\ItemIds;
 use pocketmine\level\Level;
@@ -48,10 +49,18 @@ class BoilingCauldrons extends PluginBase
      */
     public static function canBeCooked(Item $item): bool
     {
-        return match ($item->getId()) {
-            ItemIds::RAW_BEEF, ItemIds::RAW_CHICKEN, ItemIds::RAW_FISH, ItemIds::RAW_MUTTON, ItemIds::RAW_PORKCHOP, ItemIds::RAW_SALMON => true,
-            default => false,
-        };
+        switch ($item->getId()) {
+            case ItemIds::RAW_BEEF:
+            case ItemIds::RAW_CHICKEN:
+            case ItemIds::RAW_FISH:
+            case ItemIds::RAW_MUTTON:
+            case ItemIds::RAW_PORKCHOP:
+            case ItemIds::RAW_SALMON:
+                return true;
+            default:
+                return false;
+        }
+
     }
 
     /**
@@ -60,14 +69,30 @@ class BoilingCauldrons extends PluginBase
      */
     public static function getCookedItem(Item $item): Item
     {
-        $id = match ($item->getId()) {
-            ItemIds::RAW_BEEF => ItemIds::COOKED_BEEF,
-            ItemIds::RAW_CHICKEN => ItemIds::COOKED_CHICKEN,
-            ItemIds::RAW_FISH => ItemIds::COOKED_FISH,
-            ItemIds::RAW_MUTTON => ItemIds::MUTTON_COOKED,
-            ItemIds::RAW_PORKCHOP => ItemIds::COOKED_PORKCHOP,
-            ItemIds::RAW_SALMON => ItemIds::COOKED_SALMON,
-            ItemIds::RAW_RABBIT => ItemIds::COOKED_RABBIT
+        switch ($item->getId()) {
+            case ItemIds::RAW_BEEF:
+                $id = ItemIds::COOKED_BEEF;
+                break;
+            case ItemIds::RAW_CHICKEN:
+                $id = ItemIds::COOKED_CHICKEN;
+                break;
+            case ItemIds::RAW_FISH:
+                $id = ItemIds::COOKED_FISH;
+                break;
+            case ItemIds::RAW_MUTTON:
+                $id = ItemIds::MUTTON_COOKED;
+                break;
+            case ItemIds::RAW_PORKCHOP:
+                $id = ItemIds::COOKED_PORKCHOP;
+                break;
+            case ItemIds::RAW_SALMON:
+                $id = ItemIds::COOKED_SALMON;
+                break;
+            case ItemIds::RAW_RABBIT:
+                $id = ItemIds::COOKED_RABBIT;
+                break;
+            default:
+                $id = BlockIds::AIR;
         };
         return Item::get($id);
     }
