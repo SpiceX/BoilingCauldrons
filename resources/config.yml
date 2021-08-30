@@ -1,0 +1,14 @@
+# In which worlds does the plugin take effect. default for default server level
+enabled-worlds:
+  - default
+
+# How many seconds does a cauldron cook a piece of food. Cooking can be disabled.
+cooking: true
+cook-time: 10
+
+# How many items does a cauldron can cook at once.
+max-stack: 5
+
+# Control how much damage players take from being inside a boiling cauldron. Damages can be disabled.
+damage-players: true
+damage: 1.0

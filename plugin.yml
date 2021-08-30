@@ -1,0 +1,7 @@
+name: BoilingCauldrons
+main: spice\cauldrons\BoilingCauldrons
+version: 1.0.0-stable
+api: 3.0.0
+author: Spice
+website: https://github.com/SpiceX
+mcpe-protocol: 448
