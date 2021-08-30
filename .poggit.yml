@@ -1,0 +1,9 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/SpiceX/BoilingCauldrons
+build-by-default: true
+branches:
+- master
+projects:
+  BoilingCauldrons:
+    path: ""
+    icon: "icon.png"
+...
