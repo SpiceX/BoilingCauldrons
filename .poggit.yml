@@ -5,5 +5,7 @@ branches:
 projects:
   BoilingCauldrons:
     path: ""
+    lint:
+      phpstan: false
     icon: "icon.png"
 ...
