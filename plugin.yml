@@ -1,6 +1,6 @@
 name: BoilingCauldrons
 main: spice\cauldrons\BoilingCauldrons
-version: 1.0.0-stable
+version: 1.0.1-stable
 api: 3.0.0
 author: Spice
 website: https://github.com/SpiceX
