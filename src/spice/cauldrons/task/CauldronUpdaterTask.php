@@ -41,6 +41,9 @@ class CauldronUpdaterTask extends Task
     public function onRun(int $currentTick): void
     {
         foreach ($this->plugin->getBlockManager()->getCauldrons() as $cauldronTile) {
+            if ($cauldronTile->level === null || $cauldronTile->isClosed()){
+                continue;
+            }
             $block = $cauldronTile->getBlock();
             if ($block instanceof CauldronBlock) {
                 $block->tick();

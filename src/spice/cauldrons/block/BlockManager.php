@@ -44,6 +44,9 @@ class BlockManager
     {
         BlockFactory::registerBlock(new Cauldron(), true);
         Tile::init();
+        if (in_array("default", $this->plugin->settings["enabled-worlds"], true)) {
+            $this->plugin->settings["enabled-worlds"][] = $this->plugin->getServer()->getDefaultLevel()->getFolderName();
+        }
         $this->plugin->getScheduler()->scheduleRepeatingTask(new CauldronUpdaterTask($this->plugin), 20);
     }
 

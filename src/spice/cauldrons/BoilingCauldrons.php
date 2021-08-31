@@ -31,7 +31,7 @@ class BoilingCauldrons extends PluginBase
     use SingletonTrait;
 
     /** @var array */
-    private array $settings = [];
+    public array $settings = [];
     /** @var BlockManager */
     private BlockManager $blockManager;
 
@@ -56,6 +56,8 @@ class BoilingCauldrons extends PluginBase
             case ItemIds::RAW_MUTTON:
             case ItemIds::RAW_PORKCHOP:
             case ItemIds::RAW_SALMON:
+            case ItemIds::RAW_RABBIT:
+            case ItemIds::POTATO:
                 return true;
             default:
                 return false;
@@ -91,9 +93,12 @@ class BoilingCauldrons extends PluginBase
             case ItemIds::RAW_RABBIT:
                 $id = ItemIds::COOKED_RABBIT;
                 break;
+            case ItemIds::POTATO:
+                $id = ItemIds::BAKED_POTATO;
+                break;
             default:
                 $id = BlockIds::AIR;
-        };
+        }
         return Item::get($id);
     }
 
@@ -153,4 +158,5 @@ class BoilingCauldrons extends PluginBase
     {
         return $this->blockManager;
     }
+
 }
